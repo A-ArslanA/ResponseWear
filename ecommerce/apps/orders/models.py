@@ -12,8 +12,8 @@ class Order(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = "Тапсырыс"
-        verbose_name_plural = "Тапсырыстар"
+        verbose_name = "Заказ"
+        verbose_name_plural = "Заказы"
         ordering = ("-created",)
 
     def __str__(self):
@@ -26,8 +26,8 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     class Meta:
-        verbose_name = "Тапсырыс тауары"
-        verbose_name_plural = "Тапсырыс тауарлары"
+        verbose_name = "Заказ на товар"
+        verbose_name_plural = "Заказ на товары"
 
 
     def __str__(self):

@@ -1,28 +1,28 @@
-<div id="order" class="card w-100 mb-10 bg-primary shadow-xl">
+<div id="order" class="card mt-5 mb-5">
     <div class="card-body">
         <form>
-            <h1 class="mb-10" style="font-size: 30px; font-weight: 700; color: #dae1fc;">Тапсырыс қалдыру</h1>
-            <div class="form-control">
-                <label for="fullname" style="color: #dae1fc;">Есіміңіз: </label>
-                <input type="text" class="input input-bordered" id="fullname" placeholder="Аты">
+            <h1 class="mb-10" style="font-size: 30px; font-weight: 700; color: #fff;">Buy</h1>
+            <div class="form-control" style="background-color: #0A0A0A; margin-bottom: 10px;">
+                <label for="fullname" style="color: #fff;">Name: </label>
+                <input type="text" class="form-control" id="fullname" placeholder="Name" style="background-color: #161313; color: white;">
             </div>
-            <div class="form-control">
-                <label for="email" style="color: #dae1fc;">Электронды пошта: </label>
-                <input type="email" class="input input-bordered" id="email" placeholder="Электронды пошта">
+            <div class="form-control" style="background-color: #0A0A0A; margin-bottom: 10px;">
+                <label for="email" style="color: #fff;">Email: </label>
+                <input type="email" class="form-control" id="email" placeholder="Email" style="background-color: #161313; color: white;">
             </div>
-            <div class="form-control">
-                <label for="city" style="color: #dae1fc;">Қала:</label>
-                <input type="text" class="input input-bordered" id="city" placeholder="Қала">
+            <div class="form-control" style="background-color: #0A0A0A; margin-bottom: 10px;">
+                <label for="city" style="color: #fff;">City:</label>
+                <input type="text" class="form-control" id="city" placeholder="City" style="background-color: #161313; color: white;">
             </div>
-            <div class="form-control">
-                <label for="address" style="color: #dae1fc;">Мекен-жайы:</label>
-                <input type="text" class="input input-bordered" id="address" placeholder="Мекен-жайы">
+            <div class="form-control" style="background-color: #0A0A0A; margin-bottom: 10px;">
+                <label for="address" style="color: #fff;">Address:</label>
+                <input type="text" class="form-control" id="address" placeholder="Address" style="background-color: #161313; color: white;">
             </div>
-            <div class="form-control">
-                <label for="phone" style="color: #dae1fc;">Телефон:</label>
-                <input type="text" class="input input-bordered" id="phone" placeholder="Телефон" maxlength="10">
+            <div class="form-control" style="background-color: #0A0A0A;">
+                <label for="phone" style="color: #fff;">Phone:</label>
+                <input type="text" class="form-control" id="phone" placeholder="Phone" maxlength="12" style="background-color: #161313; color: white;">
             </div>
-            <button class="btn btn-ghost btn-active mt-5" onclick="processOrder()">Тапсырыс қалдыру</button>
+            <button class="btn btn-outline-info mt-3" onclick="processOrder()">Buy It Now</button>
         </form>
     </div>
 </div>
@@ -50,7 +50,7 @@
         })
         .then(res => res.json())
         .then(data => {
-            alert('Сіздің тапсырыңыз өңделуде. Тапсырысты растау барысында жақын уақытта менеджер Сізге хабарласады.');
+            alert("Success. we'll call you back");
             window.location.href = "{% url 'catalog:homePage' %}"
         });
     }

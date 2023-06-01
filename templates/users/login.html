@@ -4,17 +4,24 @@
 {% block title %}Кіру{% endblock %}
 
 {% block content %}
-<div class="container mx-auto">
-    <div class="card w-100 bg-base-100 shadow-xl">
-        <div class="card-body">
-            <h2 class="card-title mb-5" style="font-size: 32px;">Кіру</h2>
-            <form method="post">
-              {% csrf_token %}
-              {{ form|crispy }}
-                <p class="mb-5">Егер сізде аккаунт болмаса, <a href="{% url "users:signUp" %}" class="link link-primary">осы сілтемеге өтіңіз</a></p>
-              <button class="btn btn-primary">Кіру</button>
-            </form>
-        </div>
+<div class="block mt-3 mb-3">
+  <div class="navigator mb-3 mt-3">
+    <div class="container">
+        <p><a style="text-decoration: none; color: blueviolet;" href="{% url 'catalog:homePage' %}">Home</a> / Log In</p>
     </div>
+  </div>
+  <div class="container mx-auto">
+      <div class="card w-100 bg-base-100 shadow-xl">
+          <div class="card-body">
+              <h2 class="card-title mb-5" style="font-size: 32px;">Log In</h2>
+              <form method="post">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <p class="mb-5">Don't have an account? <a style="text-decoration: none; color: blueviolet; font-size: 18px;" href="{% url 'users:signUp' %}">Sign Up</a></p>
+                  <button class="btn btn-info">Log In</button>
+              </form>
+          </div>
+      </div>
+  </div>
 </div>
 {% endblock %}

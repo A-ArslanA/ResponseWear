@@ -1,7 +1,7 @@
 {% extends "../base.html" %}
 {% load static %}
-{% load tailwind_filters %}
-{% block title %}Тіркелу{% endblock %}
+{% load crispy_forms_tags %}
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
 <style>
@@ -9,16 +9,23 @@
         display: none;
     }
 </style>
-<div class="container mx-auto">
-    <div class="card w-100 bg-base-100 shadow-xl">
-        <div class="card-body">
-            <h2 class="card-title mb-5" style="font-size: 32px;">Тіркелу</h2>
-            <form method="post">
-              {% csrf_token %}
-              {{ form|crispy }}
-                <p class="mb-5">Егер сізде аккаунт бар болса, <a href="{% url "users:loginPage" %}" class="link link-primary">осы сілтемеге өтіңіз</a></p>
-              <button class="btn btn-primary">Тіркелу</button>
-            </form>
+<div class="block mt-3 mb-3">
+    <div class="navigator mb-3 mt-3">
+        <div class="container">
+            <p><a style="text-decoration: none; color: blueviolet;" href="{% url 'catalog:homePage' %}">Home</a> / Sign Up</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title mb-3" style="font-size: 32px;">Sign Up</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <p class="mb-5">Already have an account? <a style="text-decoration: none; color: blueviolet; font-size: 18px;" href="{% url 'users:loginPage' %}">Log In</a></p>
+                    <button class="btn btn-info">Sign Up</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

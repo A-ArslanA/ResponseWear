@@ -7,3 +7,7 @@ django-crispy-forms==2.0
 Pillow==9.4.0
 pytz==2022.7.1
 sqlparse==0.4.3
+
+
+# cd .venv/Scripts --> ./activate (PS)
+# cd q-ecommerce --> python manage.py runserver

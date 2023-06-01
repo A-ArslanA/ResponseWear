@@ -4,43 +4,45 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    <div class="products">
-        <div class="container mx-auto">
-            <div class="text-sm breadcrumbs mb-10">
-                <ul>
-                  <li><a href="{% url "catalog:store_home" %}">Артқа</a></li>
-                  <li>{{ product.name }}</li>
-                </ul>
-              </div>
-            <div class="grid grid-cols-3 gap-4">
-                <div class="mr-10">
-                    <div class="card bg-base-100 shadow-xl">
+    <div class="block mb-3">
+        <div class="navigator mb-3 mt-3">
+            <div class="container">
+                <p><a style="text-decoration: none; color: blueviolet;" href="{% url "catalog:homePage" %}">Home</a> / <a style="text-decoration: none; color: blueviolet;" href="{% url "catalog:store_home" %}">Shop</a> / {{ product.name }}</p>
+            </div>
+        </div>
+        <div class="container">
+            <h1 class="mb-3">Shop</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
                         <div class="card-body">
-                            <figure><img src="{{ product.image.url }}" alt="{{ product.name }}" /></figure>
-
+                            <img class="w-100 anim-img" src="{{ product.image.url }}" alt="...">
                         </div>
                     </div>
                 </div>
-                <div class="col-span-2">
-                    <div class="card bg-base-100 shadow-xl">
+                <div class="col-md-8">
+                    <div class="card">
                         <div class="card-body">
-                            <h2 class="default-title">{{ product.name }}</h2>
-                            <h3 class="text-primary" style="font-size: 20px;">Бағасы: {{ product.price }} теңге</h3>
-                            <p class="description mb-5">Сипаттамасы: {{ product.description }}</p>
-                            {% if product.in_stock %}
-                            <div class="badge badge-primary mb-10">Сатылымда бар</div>
-                            {% else %}
-                            <div class="badge badge-danger mb-10">Сатылымда жоқ</div>
-                            {% endif %}
-                            <label for="select-qty-{{product.id}}">Дана</label>
-                            <select id="select-qty-{{product.id}}" class="select select-primary w-100">
+                            <h2>{{ product.name }}</h2>
+                            <h3 style="font-size: 28px;">Price: <span class="badge bg-secondary">{{ product.price }}</span></h3>
+                            <h3 style="font-size: 28px;">Category: <span class="badge bg-secondary">{{ product.category }}</span></h3>
+                            <p style="font-size: 20px; text-align: justify;">{{ product.description }}</p>
+                            <div class="marking">
+                                {% if product.in_stock %}
+                                <span class="badge bg-success">Available</span>
+                                {% else %}
+                                <span class="badge bg-danger">Not available</span>
+                                {% endif %}
+                            </div>
+                            <label for="select-qty-{{product.id}}" style="font-size: 20px; font-weight: 700;">Count</label>
+                            <select id="select-qty-{{product.id}}" class="productDetailsSelect" style="margin-bottom: 10px; margin-top: 5px;">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                            <button onclick="addToCart('{{product.id}}')" class="btn btn-primary">Себетке қосу</button>
+                            <button onclick="addToCart('{{product.id}}')" class="btn btn-info">Add to cart</button>
                         </div>
                     </div>
                 </div>
@@ -48,13 +50,8 @@
         </div>
     </div>
 {% else %}
-<div class="container mx-auto">
-    <div class="alert alert-error shadow-lg">
-  <div>
-    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-    <span>Тауарларды қарау үшін және оларға тапсырыс беру үшін, жүйеге тіркеліңіз немесе кіріңіз.</span>
-  </div>
-</div>
+<div class="container">
+    <span style="display: flex; justify-content: center; margin-top: 100px; font-size: 48px;">Go to Login</span>
 </div>
 {% endif %}
 <script>
